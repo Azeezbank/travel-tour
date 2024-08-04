@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Travel and Tours - Package Details</h1>
+    </header>
+
+    <main>
+      <section id="packageDetails">
+        <!-- Package details will be dynamically loaded here -->
+      </section>
+
+      <section id="bookingFormSection">
+        <h2>Book This Package</h2>
+
+        <form id="bookingForm">
+          <label for="name">Name:</label>
+
+          <input type="text" id="name" required /> <br />
+
+          <label for="email">Email:</label>
+
+          <input type="email" id="email" required /> <br />
+
+          <label for="phone">Phone:</label>
+
+          <input type="tel" id="phone" required /> <br />
+
+          <button type="submit">Confirm Booking</button>
+        </form>
+      </section>
+
+      <section id="bookingConfirmation" style="display: none">
+        <h2>Booking Confirmation</h2>
+
+        <p id="confirmationDetails"></p>
+      </section>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const packageDetails = JSON.parse(
+          localStorage.getItem("selectedPackage")
+        );
+
+        const packageDetailsSection = document.getElementById("packageDetails");
+
+        const bookingForm = document.getElementById("bookingForm");
+
+        const bookingConfirmation = document.getElementById(
+          "bookingConfirmation"
+        );
+
+        const confirmationDetails = document.getElementById(
+          "confirmationDetails"
+        );
+
+        if (packageDetails) {
+          packageDetailsSection.innerHTML = `
+
+        <h2>${packageDetails.name}</h2>
+
+        <p>${packageDetails.description}</p>
+
+        <p>Price: $${packageDetails.price}</p>
+
+    `;
+        }
+
+        bookingForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value;
+
+          const email = document.getElementById("email").value;
+
+          const phone = document.getElementById("phone").value;
+
+          confirmationDetails.innerHTML = `
+
+        <p>Thank you for booking, ${name}!</p>
+
+        <p>Package: ${packageDetails.name}</p>
+
+        <p>Email: ${email}</p>
+
+        <p>Phone: ${phone}</p>
+
+    `;
+
+          bookingForm.style.display = "none";
+
+          bookingConfirmation.style.display = "block";
+        });
+      });
+    </script>
+  </body>
+</html>
