@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  //packeges
   const packages = [
     {
       id: 1,
       name: "Paris Adventure",
       description: "Explore the beautiful city of Paris",
       price: 1200,
+      image: 'https://github.com/user-attachments/assets/3bc4dbbd-b6e5-49bb-b997-32948106b6f7',
     },
 
     {
@@ -12,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "New York Escape",
       description: "Experience the hustle and bustle of New York",
       price: 1500,
+      image: 'https://github.com/user-attachments/assets/dc4ef395-69ec-4b31-bf6d-81a6d2ab5de3',
     },
 
     {
@@ -28,6 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
       price: 1400,
     },
   ];
+
+  //Testimonials
 
   const testimonials = [
     { user: "Alice", review: "Amazing experience, highly recommended!" },
