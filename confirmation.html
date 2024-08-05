@@ -81,6 +81,17 @@
 
           const phone = document.getElementById("phone").value;
 
+
+          const details = {name: name, email: email, phone: phone}
+          localStorage.setItem('userDetails', JSON.stringify(details);
+          getUserDetails();
+        });
+
+        function getUserDetails() {
+          const userDetails = localStorage.getItem(userDetails)
+          if (userDetails) {
+            const details = JSON.parse(userDetails);
+            
           confirmationDetails.innerHTML = `
 
         <p>Thank you for booking, ${name}!</p>
@@ -92,11 +103,14 @@
         <p>Phone: ${phone}</p>
 
     `;
+          }
+        
 
           bookingForm.style.display = "none";
 
           bookingConfirmation.style.display = "block";
-        });
+        }
+        //});
       });
     </script>
   </body>
