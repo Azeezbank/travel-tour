@@ -82,14 +82,10 @@
           const phone = document.getElementById("phone").value;
 
 
-          const details = {name: name, email: email, phone: phone}
-          localStorage.setItem('userDetails', JSON.stringify(details);
-          getUserDetails();
-        });
-
-        function getUserDetails() {
+          
+          localStorage.setItem('userDetails', JSON.stringify(confirmationDetails);
           const userDetails = localStorage.getItem(userDetails)
-          if (userDetails) {
+     
             const details = JSON.parse(userDetails);
             
           confirmationDetails.innerHTML = `
@@ -109,9 +105,7 @@
           bookingForm.style.display = "none";
 
           bookingConfirmation.style.display = "block";
-          } else{confirmationDetails.innerHTML = "welcome"}
-        }
-        //});
+        });
       });
     </script>
   </body>
