@@ -145,3 +145,8 @@ input {
     gap: 20px;
   }
 }
+footer, footer p {
+  background-color: green;
+  text-align: center;
+  padding: 20px;
+}
